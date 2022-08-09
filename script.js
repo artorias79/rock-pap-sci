@@ -11,7 +11,7 @@ function getComputerChoice() {
 
 // assigned getComputerChoice to a variable for ease of use
 let playerChoice = 'rock';
-let computerChoice = getComputerChoice();
+let computerChoice;
 
 // function that plays one round
 
@@ -52,4 +52,17 @@ function playRound(playerSelection, computerSelection) {
 	}
 }
 
-console.log(playRound(playerChoice, computerChoice));
+function game() {
+	for (let i = 0; i < 5; i++) {
+		// plays round
+		// score will be the string returned by the playRound function
+		computerChoice = getComputerChoice();
+		let score = playRound(playerChoice, computerChoice);
+		console.log(score);
+		// variables to keep track of scores
+		let wins = 0;
+		let losses = 0;
+	}
+}
+
+console.log(game());
