@@ -2,7 +2,6 @@
 
 function getComputerChoice() {
 	let numGen = Math.floor(Math.random() * 3);
-	console.log(numGen);
 	if (numGen == 0) {
 		return 'rock';
 	} else if (numGen == 1) {
@@ -14,8 +13,6 @@ function getComputerChoice() {
 let playerChoice = 'rock';
 let computerChoice = getComputerChoice();
 
-console.log(computerChoice);
-
 // function that plays one round
 
 function playRound(playerSelection, computerSelection) {
@@ -24,6 +21,7 @@ function playRound(playerSelection, computerSelection) {
 		return 'That\'s not how you play the game!';
 	// going through all options if the player selection is rock	
 	} else if (playerSelection == 'rock') {
+		console.log(`${playerSelection} vs ${computerSelection}`);
 		if (computerSelection == 'rock') {
 			return 'It\'s a draw';
 		} else if (computerSelection == 'paper') {
@@ -33,6 +31,7 @@ function playRound(playerSelection, computerSelection) {
 		}
 	// going though all options if the player selection is paper
 	} else if (playerSelection == 'paper') {
+		console.log(`${playerSelection} vs ${computerSelection}`);
 		if (computerSelection == 'rock') {
 			return 'You win';
 		} else if (computerSelection == 'paper') {
@@ -42,6 +41,7 @@ function playRound(playerSelection, computerSelection) {
 		}
 	// going though all options if the player selection is scissors
 	} else if (playerSelection == 'scissors') {
+		console.log(`${playerSelection} vs ${computerSelection}`);
 		if (computerSelection == 'rock') {
 			return 'You lose';
 		} else if (computerSelection == 'paper') {
@@ -51,3 +51,5 @@ function playRound(playerSelection, computerSelection) {
 		}
 	}
 }
+
+console.log(playRound(playerChoice, computerChoice));
