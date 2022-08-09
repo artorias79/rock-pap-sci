@@ -10,7 +10,7 @@ function getComputerChoice() {
 }
 
 // assigned getComputerChoice to a variable for ease of use
-let playerChoice = 'rock';
+let playerChoice;
 let computerChoice;
 
 // function that plays one round
@@ -59,8 +59,9 @@ function game() {
 
 	for (let i = 0; i < 5; i++) {
 		// plays round
-		// score will be the string returned by the playRound function
 		computerChoice = getComputerChoice();
+		playerChoice = prompt('Choose: rock, paper, or scissors', 'rock')
+		// score will be the string returned by the playRound function
 		let score = playRound(playerChoice, computerChoice);
 		console.log(score);
 		// if statement to total wins and losses
@@ -68,6 +69,9 @@ function game() {
 			++wins;
 		} else if (score === 'You lose') {
 			++losses;
+		// incase the player escapes the prompt or makes a type, it will not count as a round
+		} else if (score === 'That\'s not how you play the game!') {
+			--i;
 		} else {
 			;
 		}
