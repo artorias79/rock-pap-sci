@@ -53,15 +53,32 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+	// variables to keep track of scores
+	let wins = 0;
+	let losses = 0;
+
 	for (let i = 0; i < 5; i++) {
 		// plays round
 		// score will be the string returned by the playRound function
 		computerChoice = getComputerChoice();
 		let score = playRound(playerChoice, computerChoice);
 		console.log(score);
-		// variables to keep track of scores
-		let wins = 0;
-		let losses = 0;
+		// if statement to total wins and losses
+		if (score === 'You win') {
+			++wins;
+		} else if (score === 'You lose') {
+			++losses;
+		} else {
+			;
+		}
+	}
+// determines who won the most and logs the result
+	if (wins > losses) {
+		console.log('You won the best out of 5!')
+	} else if (wins < losses) {
+		console.log('You lost the best out of 5 to the computer!')
+	} else {
+		console.log('You and the computer drew the best out of 5!')
 	}
 }
 
